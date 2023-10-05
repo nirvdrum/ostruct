@@ -134,6 +134,11 @@ class OpenStruct
   def initialize(hash=nil)
     if HAS_PERFORMANCE_WARNINGS && Warning[:performance]
        warn "OpenStruct use is discouraged for performance reasons", uplevel: 1, category: :performance
+    else
+      $stderr.puts '*' * 20
+      $stderr.puts "OpenStruct use is discouraged for performance reasons"
+      $stderr.puts caller
+      $stderr.puts '*' * 20
     end
 
     if hash
